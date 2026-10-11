@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 外圈：同心淡蓝光环，提升浮起感（MD3 focus-ring 手法，不变形） -->
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="#263D7EFF" />
+        </shape>
+    </item>
+    <!-- 内圈：实心正圆主体 -->
+    <item
+        android:left="3dp"
+        android:top="3dp"
+        android:right="3dp"
+        android:bottom="3dp">
+        <shape android:shape="oval">
+            <solid android:color="@color/re_accent" />
+        </shape>
+    </item>
+</layer-list>

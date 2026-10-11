@@ -17,14 +17,15 @@
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/tvSortNum"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:background="@drawable/re_bg_sort_chip"
-                android:gravity="center"
-                android:textColor="@android:color/white"
-                android:textSize="10sp" />
+        <TextView
+            android:id="@+id/tvSortNum"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:background="@drawable/re_bg_sort_num"
+            android:gravity="center"
+            android:textColor="@color/re_accent"
+            android:textSize="11sp"
+            android:textStyle="bold" />
 
             <Space
                 android:layout_width="0dp"
@@ -53,14 +54,15 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_marginTop="8dp"
-            android:background="#111111">
+            android:background="@drawable/re_bg_media_dark">
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/ivPoster"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/re_video"
-                android:scaleType="centerCrop" />
+                android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/REMediaShape" />
 
             <androidx.media3.ui.PlayerView
                 android:id="@+id/playerView"

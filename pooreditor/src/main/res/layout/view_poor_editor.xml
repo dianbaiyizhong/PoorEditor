@@ -16,6 +16,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:background="@drawable/re_bg_empty_tip"
+        android:paddingStart="20dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="12dp"
         android:text="@string/re_empty_tip"
         android:textColor="@color/re_text_hint"
         android:textSize="14sp"
@@ -35,10 +40,9 @@
             android:id="@+id/quickBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end"
+            android:layout_gravity="start"
             android:layout_marginBottom="4dp"
             android:background="@drawable/re_bg_quick_bar"
-            android:elevation="8dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingHorizontal="4dp"
@@ -64,6 +68,12 @@
                 android:src="@drawable/re_ic_video" />
 
             <ImageView
+                android:id="@+id/btnQuickLocation"
+                style="@style/REQuickButton"
+                android:contentDescription="@string/re_location"
+                android:src="@drawable/re_ic_location" />
+
+            <ImageView
                 android:id="@+id/btnQuickEmoji"
                 style="@style/REQuickButton"
                 android:contentDescription="@string/re_emoji"
@@ -76,40 +86,40 @@
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
-            <FrameLayout
-                android:id="@+id/dragHandle"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:background="@drawable/re_bg_accent_soft"
-                android:elevation="8dp">
-
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_gravity="center"
-                    android:contentDescription="@string/re_drag_cursor"
-                    android:src="@drawable/re_ic_drag"
-                    app:tint="@color/re_accent" />
-            </FrameLayout>
+            <TextView
+                android:id="@+id/btnQuickToggle"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="@drawable/re_bg_btn_shadow"
+                android:gravity="center"
+                android:text="+"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <View
                 android:id="@+id/insertLine"
                 android:layout_width="0dp"
-                android:layout_height="2dp"
+                android:layout_height="4dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
                 android:layout_weight="1"
-                android:background="@color/re_accent" />
+                android:background="@drawable/re_bg_insert_line" />
 
-            <TextView
-                android:id="@+id/btnQuickToggle"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:background="@drawable/re_bg_accent_soft"
-                android:elevation="8dp"
-                android:gravity="center"
-                android:text="+"
-                android:textColor="@color/re_accent"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+            <FrameLayout
+                android:id="@+id/dragHandle"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="@drawable/re_bg_btn_shadow">
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/re_drag_cursor"
+                    android:src="@drawable/re_ic_drag"
+                    app:tint="@android:color/white" />
+            </FrameLayout>
         </LinearLayout>
     </LinearLayout>
 
@@ -118,12 +128,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="@color/re_surface"
-        android:elevation="4dp"
+        android:background="@drawable/re_bg_toolbar"
+        android:elevation="12dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingTop="6dp"
-        android:paddingBottom="6dp">
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
 
         <TextView
             android:id="@+id/btnAddText"

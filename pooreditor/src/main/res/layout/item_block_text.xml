@@ -14,12 +14,13 @@
 
         <TextView
             android:id="@+id/tvSortNum"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:background="@drawable/re_bg_sort_chip"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:background="@drawable/re_bg_sort_num"
             android:gravity="center"
-            android:textColor="@android:color/white"
-            android:textSize="10sp" />
+            android:textColor="@color/re_accent"
+            android:textSize="11sp"
+            android:textStyle="bold" />
 
         <Space
             android:layout_width="0dp"

@@ -194,15 +194,7 @@ class PoorEditorView @JvmOverloads constructor(
         binding.btnAddText.setOnClickListener { insertBlock(TextBlock(newBlockId())) }
         binding.btnAddImage.setOnClickListener { requestPickImage() }
         binding.btnAddVideo.setOnClickListener { requestPickVideo() }
-        binding.btnAddLocation.setOnClickListener {
-            if (listener?.onLocationRequested() != true) {
-                Toast.makeText(
-                    context,
-                    "请在 listener.onLocationRequested() 中实现位置选择",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-        }
+        binding.btnAddLocation.setOnClickListener { requestLocation() }
         binding.btnAddEmoji.setOnClickListener {
             EmojiPanel.show(context) { emoji -> appendToActiveText(emoji) }
         }
@@ -291,6 +283,10 @@ class PoorEditorView @JvmOverloads constructor(
         binding.btnQuickVideo.setOnClickListener {
             binding.quickBar.visibility = View.GONE
             requestPickVideo()
+        }
+        binding.btnQuickLocation.setOnClickListener {
+            binding.quickBar.visibility = View.GONE
+            requestLocation()
         }
         binding.btnQuickEmoji.setOnClickListener {
             binding.quickBar.visibility = View.GONE
@@ -562,17 +558,27 @@ class PoorEditorView @JvmOverloads constructor(
                 return@post
             }
             val anchor = insertAt.coerceIn(0, count) - 1
-            val holder = if (anchor >= 0) {
-                binding.recyclerView.findViewHolderForAdapterPosition(anchor)
-            } else null
-            if (holder != null) {
-                binding.insertBar.visibility = View.VISIBLE
-                // 让"手柄/插入线"这一行的垂直中心对齐到块的底边（即插入边界）
-                val halfRow = (binding.dragHandle.height / 2f)
-                    .takeIf { it > 0f } ?: (16.dp(context)).toFloat()
-                binding.insertBar.translationY = holder.itemView.bottom - halfRow
+            val halfRow = (binding.dragHandle.height / 2f)
+                .takeIf { it > 0f } ?: (16.dp(context)).toFloat()
+            if (anchor >= 0) {
+                // 常规情况：线的中心对齐"上一个块"的底边（即插入边界）
+                val holder = binding.recyclerView.findViewHolderForAdapterPosition(anchor)
+                if (holder != null) {
+                    binding.insertBar.visibility = View.VISIBLE
+                    binding.insertBar.translationY = holder.itemView.bottom - halfRow
+                } else {
+                    binding.insertBar.visibility = View.GONE
+                }
             } else {
-                binding.insertBar.visibility = View.GONE
+                // insertAt == 0（插到最前面）：对齐第一个可见块的顶部，避免光标条消失
+                val first = binding.recyclerView.findViewHolderForAdapterPosition(0)
+                if (first != null) {
+                    binding.insertBar.visibility = View.VISIBLE
+                    binding.insertBar.translationY =
+                        (first.itemView.top - halfRow).coerceAtLeast(0f)
+                } else {
+                    binding.insertBar.visibility = View.GONE
+                }
             }
         }
     }
@@ -653,6 +659,17 @@ class PoorEditorView @JvmOverloads constructor(
                 return
             }
         launcher.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.VideoOnly))
+    }
+
+    /** 请求插入位置块：交给宿主实现，未实现时提示 */
+    private fun requestLocation() {
+        if (listener?.onLocationRequested() != true) {
+            Toast.makeText(
+                context,
+                "请在 listener.onLocationRequested() 中实现位置选择",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
     }
 
     private fun handlePickedMedia(uri: Uri, isVideo: Boolean) {

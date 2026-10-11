@@ -19,12 +19,13 @@
 
             <TextView
                 android:id="@+id/tvSortNum"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:background="@drawable/re_bg_sort_chip"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:background="@drawable/re_bg_sort_num"
                 android:gravity="center"
-                android:textColor="@android:color/white"
-                android:textSize="10sp" />
+                android:textColor="@color/re_accent"
+                android:textSize="11sp"
+                android:textStyle="bold" />
 
             <Space
                 android:layout_width="0dp"
@@ -54,13 +55,14 @@
             android:layout_height="180dp"
             android:layout_marginTop="8dp">
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/ivImage"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#EEEEEE"
+                android:background="@color/re_block"
                 android:contentDescription="@string/re_image"
-                android:scaleType="centerCrop" />
+                android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/REMediaShape" />
 
             <ProgressBar
                 android:id="@+id/progress"
