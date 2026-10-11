@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.PoorEditorDemo" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/demo_accent</item>
+    </style>
+</resources>

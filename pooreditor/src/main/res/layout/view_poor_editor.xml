@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:parentTag="android.widget.FrameLayout">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:overScrollMode="never" />
+
+    <TextView
+        android:id="@+id/tvEmptyTip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/re_empty_tip"
+        android:textColor="@color/re_text_hint"
+        android:textSize="14sp"
+        android:visibility="gone" />
+
+    <!-- 插入光标条：快捷插入栏 + 拖拽手柄 + 蓝色插入线 + 快捷展开按钮 -->
+    <LinearLayout
+        android:id="@+id/insertBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:id="@+id/quickBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/re_bg_quick_bar"
+            android:elevation="8dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="4dp"
+            android:paddingVertical="2dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/btnQuickText"
+                style="@style/REQuickButton"
+                android:contentDescription="@string/re_text"
+                android:src="@drawable/re_ic_text" />
+
+            <ImageView
+                android:id="@+id/btnQuickImage"
+                style="@style/REQuickButton"
+                android:contentDescription="@string/re_image"
+                android:src="@drawable/re_ic_image" />
+
+            <ImageView
+                android:id="@+id/btnQuickVideo"
+                style="@style/REQuickButton"
+                android:contentDescription="@string/re_video"
+                android:src="@drawable/re_ic_video" />
+
+            <ImageView
+                android:id="@+id/btnQuickEmoji"
+                style="@style/REQuickButton"
+                android:contentDescription="@string/re_emoji"
+                android:src="@drawable/re_ic_emoji" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:id="@+id/dragHandle"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@drawable/re_bg_accent_soft"
+                android:elevation="8dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/re_drag_cursor"
+                    android:src="@drawable/re_ic_drag"
+                    app:tint="@color/re_accent" />
+            </FrameLayout>
+
+            <View
+                android:id="@+id/insertLine"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:layout_weight="1"
+                android:background="@color/re_accent" />
+
+            <TextView
+                android:id="@+id/btnQuickToggle"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@drawable/re_bg_accent_soft"
+                android:elevation="8dp"
+                android:gravity="center"
+                android:text="+"
+                android:textColor="@color/re_accent"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/re_surface"
+        android:elevation="4dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp">
+
+        <TextView
+            android:id="@+id/btnAddText"
+            style="@style/REToolbarButton"
+            android:text="@string/re_text"
+            app:drawableTopCompat="@drawable/re_ic_text" />
+
+        <TextView
+            android:id="@+id/btnAddImage"
+            style="@style/REToolbarButton"
+            android:text="@string/re_image"
+            app:drawableTopCompat="@drawable/re_ic_image" />
+
+        <TextView
+            android:id="@+id/btnAddVideo"
+            style="@style/REToolbarButton"
+            android:text="@string/re_video"
+            app:drawableTopCompat="@drawable/re_ic_video" />
+
+        <TextView
+            android:id="@+id/btnAddLocation"
+            style="@style/REToolbarButton"
+            android:text="@string/re_location"
+            app:drawableTopCompat="@drawable/re_ic_location" />
+
+        <TextView
+            android:id="@+id/btnAddEmoji"
+            style="@style/REToolbarButton"
+            android:text="@string/re_emoji"
+            app:drawableTopCompat="@drawable/re_ic_emoji" />
+    </LinearLayout>
+</merge>

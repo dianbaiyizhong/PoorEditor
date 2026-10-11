@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PoorEditor 演示</string>
+    <string name="demo_title">PoorEditor 组件演示</string>
+    <string name="demo_view_json">查看 JSON</string>
+    <string name="demo_count_zero">0 个内容块 · 约 0 字</string>
+    <string name="demo_insert_location">插入位置</string>
+    <string name="demo_save_draft">存草稿</string>
+    <string name="demo_restore_draft">恢复草稿</string>
+</resources>

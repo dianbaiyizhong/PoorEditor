@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/re_bg_block"
+    android:padding="12dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvSortNum"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/re_bg_sort_chip"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="10sp" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/btnDrag"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:contentDescription="@string/re_drag"
+                android:src="@drawable/re_ic_drag"
+                app:tint="@color/re_text_hint" />
+
+            <ImageView
+                android:id="@+id/btnDelete"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="14dp"
+                android:contentDescription="@string/re_delete"
+                android:src="@drawable/re_ic_close"
+                app:tint="@color/re_text_hint" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="8dp"
+            android:background="#111111">
+
+            <ImageView
+                android:id="@+id/ivPoster"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/re_video"
+                android:scaleType="centerCrop" />
+
+            <androidx.media3.ui.PlayerView
+                android:id="@+id/playerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                app:resize_mode="fit"
+                app:use_controller="true" />
+
+            <ImageView
+                android:id="@+id/btnPlay"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:background="@drawable/re_bg_play_circle"
+                android:contentDescription="@string/re_play"
+                android:padding="12dp"
+                android:src="@drawable/re_ic_play"
+                app:tint="@android:color/white" />
+
+            <ProgressBar
+                android:id="@+id/progress"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:indeterminateTint="@color/re_accent"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tvUploadStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|start"
+                android:layout_margin="8dp"
+                android:background="@drawable/re_bg_badge"
+                android:paddingStart="8dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="8dp"
+                android:paddingBottom="4dp"
+                android:textColor="@android:color/white"
+                android:textSize="11sp"
+                android:visibility="gone" />
+        </FrameLayout>
+    </LinearLayout>
+</FrameLayout>

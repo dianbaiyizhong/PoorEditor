@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PoorEditorView">
+        <attr name="editorHint" format="string" />
+        <attr name="editorEmptyTip" format="string" />
+        <attr name="showToolbar" format="boolean" />
+        <attr name="showEmoji" format="boolean" />
+    </declare-styleable>
+</resources>

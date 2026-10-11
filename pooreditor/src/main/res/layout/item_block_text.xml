@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/re_bg_block"
+    android:orientation="vertical"
+    android:padding="12dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvSortNum"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/re_bg_sort_chip"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="10sp" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/btnDrag"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:contentDescription="@string/re_drag"
+            android:src="@drawable/re_ic_drag"
+            app:tint="@color/re_text_hint"
+            xmlns:app="http://schemas.android.com/apk/res-auto" />
+
+        <ImageView
+            android:id="@+id/btnDelete"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="14dp"
+            android:contentDescription="@string/re_delete"
+            android:src="@drawable/re_ic_close"
+            app:tint="@color/re_text_hint"
+            xmlns:app="http://schemas.android.com/apk/res-auto" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/etContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@null"
+        android:inputType="textMultiLine|textCapSentences"
+        android:minLines="2"
+        android:textColor="@color/re_text_primary"
+        android:textColorHint="@color/re_text_hint"
+        android:textSize="15sp" />
+</LinearLayout>

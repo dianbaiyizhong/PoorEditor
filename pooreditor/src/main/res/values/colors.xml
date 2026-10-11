@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="re_accent">#3D7EFF</color>
+    <color name="re_text_primary">#1A1A1A</color>
+    <color name="re_text_secondary">#5A6068</color>
+    <color name="re_text_hint">#A0A6AE</color>
+    <color name="re_surface">#FFFFFF</color>
+    <color name="re_block">#F5F6F8</color>
+</resources>

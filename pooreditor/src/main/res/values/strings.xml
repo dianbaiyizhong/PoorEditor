@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="re_empty_tip">点击下方按钮开始创作</string>
+    <string name="re_text">文本</string>
+    <string name="re_image">图片</string>
+    <string name="re_video">视频</string>
+    <string name="re_location">位置</string>
+    <string name="re_emoji">表情</string>
+    <string name="re_drag">拖动排序</string>
+    <string name="re_drag_cursor">拖动调整插入位置</string>
+    <string name="re_quick_add">展开快捷插入</string>
+    <string name="re_delete">删除</string>
+    <string name="re_play">播放</string>
+</resources>
